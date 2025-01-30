@@ -1,3 +1,11 @@
 version: 1.2 # The .dockstore.yml schema version
 workflows:
   - subclass: WDL
+    primaryDescriptorPath: /GlimpseImputationPipeline/Glimpse2SplitReference.wdl
+    testParameterFiles:
+      - /inputs/split_reference_inputs_chr22.json
+    readMePath: /GlimpseImputationPipeline/README.md
+    authors:
+      - name: Jackie Goldstein
+        email: jigold@broadinstitute.org
+    topic: GLIMPSE2 pipeline forked from palantir workflows
