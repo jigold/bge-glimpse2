@@ -1,0 +1,17 @@
+{
+    "Glimpse2SplitReference.region": "chr22",
+    "Glimpse2SplitReference.seed": 3242342,
+    "Glimpse2SplitReference.uniform_number_of_variants": false,
+    "Glimpse2SplitReference.drop_monomorphic_ref_sites": false,
+    "Glimpse2SplitReference.preemptible": 1,
+    "Glimpse2SplitReference.docker": "us-docker.pkg.dev/neale-pumas-bge/glimpse2/glimpse2:odelaneau_bd93ade",
+    "Glimpse2SplitReference.contig_regions": [
+        "chr22"
+    ],
+    "Glimpse2SplitReference.reference_panel_filenames": [
+        "gs://gcp-public-data--gnomad/resources/hgdp_1kg/phased_haplotypes_v2/hgdp1kgp_chr22.filtered.SNV_INDEL.phased.shapeit5.bcf"
+    ],
+    "Glimpse2SplitReference.genetic_map_filenames": [
+        "gs://bge-dragen-imputation/genetic_maps/b38/chr22.b38.gmap.gz"
+    ]
+}

@@ -9,20 +9,10 @@ workflow Glimpse2SplitReference {
         # another array contig_names_in_reference_panel = ["chr1", "chr2", ..., "chr22", "chrX", "chrX", "chrX"]. Note that contig_regions and
         # contig_names_in_reference_panel must have the same length.
         Array[String] contig_regions
-        Array[String] contig_names_in_reference_panel
-        Array[String] contig_names_in_genetic_maps
 
-        # Example path for chr1: gs://bucket/to/panel/reference_panel_chr1_merged.bcf(.csi)
-        # reference_panel_prefix = "gs://bucket/to/panel/reference_panel_"
-        # reference_panel_suffix = "_merged.bcf"
-        # reference_panel_index_suffix = ".csi"
-        String reference_panel_prefix
-        String reference_panel_suffix
-        String reference_panel_index_suffix
-
-        # Same format as reference_panel_pre-/suffix
-        String genetic_map_path_prefix
-        String genetic_map_path_suffix
+        Array[String] reference_panel_filenames
+        String reference_panel_index_suffix = ".csi"
+        Array[String] genetic_map_filenames
 
         Int? seed
         Float min_window_cm
@@ -30,17 +20,14 @@ workflow Glimpse2SplitReference {
         Boolean keep_monomorphic_ref_sites = true
         
         Int preemptible = 1
-        String docker = "us.gcr.io/broad-dsde-methods/glimpse:odelaneau_e0b9b56"
+        String docker = "us-central1-docker.pkg.dev/neale-pumas-bge/glimpse2/glimpse2:odelaneau_bd93ade"
         File? monitoring_script
     }
 
     scatter (i_contig in range(length(contig_regions))) {
         String contig_region = contig_regions[i_contig]
-        String contig_name_in_reference_panel = contig_names_in_reference_panel[i_contig]
-        String contig_name_in_genetic_maps = contig_names_in_genetic_maps[i_contig]
-
-        String reference_filename = reference_panel_prefix + contig_name_in_reference_panel + reference_panel_suffix
-        String genetic_map_filename = genetic_map_path_prefix + contig_name_in_genetic_maps + genetic_map_path_suffix
+        String reference_filename = reference_panel_filenames[i_contig]
+        String genetic_map_filename = genetic_map_filenames[i_contig]
 
         call GlimpseSplitReferenceTask {
             input:
