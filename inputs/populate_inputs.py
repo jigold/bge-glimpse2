@@ -42,6 +42,8 @@ if __name__ == "__main__":
     split_reference.add_argument("--docker", type=str, required=True)
     split_reference.add_argument("--monitoring-script", type=str)
 
+
+
     split_reference_args, _ = split_reference.parse_known_args()
     split_reference_args = vars(split_reference_args)
 

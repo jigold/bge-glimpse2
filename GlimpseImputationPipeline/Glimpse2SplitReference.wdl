@@ -15,7 +15,7 @@ workflow Glimpse2SplitReference {
         Array[String] genetic_map_filenames
 
         Int? seed
-        Float min_window_cm
+        Float? min_window_cm
         Boolean uniform_number_variants = false
         Boolean keep_monomorphic_ref_sites = true
         

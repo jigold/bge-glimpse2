@@ -3,7 +3,7 @@
     "Glimpse2SplitReference.uniform_number_of_variants": false,
     "Glimpse2SplitReference.drop_monomorphic_ref_sites": false,
     "Glimpse2SplitReference.preemptible": 1,
-    "Glimpse2SplitReference.docker": "us-docker.pkg.dev/neale-pumas-bge/glimpse2/glimpse2:odelaneau_bd93ade",
+    "Glimpse2SplitReference.docker": "us-central1-docker.pkg.dev/neale-pumas-bge/glimpse2/glimpse2:odelaneau_bd93ade",
     "Glimpse2SplitReference.contig_regions": [
         "chr1",
         "chr2",
